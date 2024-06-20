@@ -3,7 +3,7 @@ import pandas as pd
 import argparse
 
 parser = argparse.ArgumentParser(description='Description of your program')
-parser.add_argument('--gridfile', default="IF/burstSFR/alpha_0.2/1e+00_Zsun_population.h5",help='',type=str)
+parser.add_argument('--gridfile', default="IF/burstSFR/fiducial/1e+00_Zsun_population.h5",help='',type=str)
 parser.add_argument('--savename', default="bbh_data.pkl",help='',type=str)
 args = parser.parse_args()
 
