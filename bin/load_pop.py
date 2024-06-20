@@ -12,20 +12,15 @@ path = "/projects/b1119/briel/popsyn/240618_grids/240618/"
 
 pop = Population(path + args.gridfile,verbose=True)
 
-m1 = pop.oneline["S1_mass_i"]
-m2 = pop.oneline["S2_mass_i"]
-p = pop.oneline["orbital_period_i"]
+df = pop.oneline[["S1_mass_i",
+                  "S2_mass_i",
+                  "orbital_period_i",
+                  "S1_state_f",
+                  "S2_state_f"]]
 
-fstate1 = pop.oneline["S1_state_f"]
-fstate2 = pop.oneline["S2_state_f"]
-
-data = {"m1" : m1,
-          "m2" : m2,
-          "p" : p,
-          "fstate1" : fstate1,
-          "fstate2" : fstate2
-         }
-
-df = pd.DataFrame(data)
+s1bh = df["S1_state_f"]=="BH" 
+s2bh = df["S2_state_f"]=="BH" 
+bbh_bool = s1bh.tolist() and s2bh.tolist()
+df = df.assign(bbh = bbh_bool)
 
 df.to_pickle(args.savename)
