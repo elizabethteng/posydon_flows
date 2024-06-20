@@ -1,5 +1,6 @@
 from posydon.popsyn.synthetic_population import Population
 import pandas as pd
+import numpy as np
 import argparse
 
 parser = argparse.ArgumentParser(description='Description of your program')
