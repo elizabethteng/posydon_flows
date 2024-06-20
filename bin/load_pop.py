@@ -1,8 +1,15 @@
 from posydon.popsyn.synthetic_population import Population
 import pandas as pd
+import argparse
 
-path = "/projects/b1119/briel/popsyn/240618_grids/240618/IF/burstSFR/alpha_0.2/1e+00_Zsun_population.h5"
-pop = Population(path,verbose=True)
+parser = argparse.ArgumentParser(description='Description of your program')
+parser.add_argument('--gridfile', default="IF/burstSFR/alpha_0.2/1e+00_Zsun_population.h5",help='',type=str)
+parser.add_argument('--savename', default="bbh_data.pkl",help='',type=str)
+args = parser.parse_args()
+
+path = "/projects/b1119/briel/popsyn/240618_grids/240618/"
+
+pop = Population(path + args.gridfile,verbose=True)
 
 m1 = pop.oneline["S1_mass_i"]
 m2 = pop.oneline["S2_mass_i"]
@@ -21,4 +28,4 @@ data = {"m1" : m1,
 
 df = pd.Dataframe(data)
 
-df.to_pickle("test_bbh_data.pkl")
+df.to_pickle(args.savename)

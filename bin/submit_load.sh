@@ -11,4 +11,4 @@
 
 source activate /projects/b1119/briel/software/loadv2_env_240618
 
-python load_pop.py --gridfile "IF/burstSFR/alpha_0.2/1e+00_Zsun_population.h5"
+python load_pop.py --gridfile "IF/burstSFR/alpha_0.2/1e+00_Zsun_population.h5" --savename "test_bbh_data.pkl"
