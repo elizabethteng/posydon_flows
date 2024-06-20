@@ -27,6 +27,6 @@ data = {"m1" : m1,
           "BBH" : bbh
          }
 
-df = pd.Dataframe(data)
+df = pd.DataFrame(data)
 
 df.to_pickle(args.savename)
