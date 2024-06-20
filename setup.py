@@ -9,7 +9,8 @@ setup(
     packages = ['posydon_flows'],
     install_requires=["numpy",
                       "scipy",
-                      "scikit_learn",
+                      "sklearn",
+                      "torch",
                       "posydon"],
     extras_require=dict(
         test=["scipy", "nbconvert", "nbstrip", "ipykernel"]
